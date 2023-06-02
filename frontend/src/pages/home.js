@@ -5,7 +5,6 @@ import DoneOutlineIcon from '@mui/icons-material/DoneOutline';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import { Link } from 'react-router-dom';
-import "./home.css";
 
 const initialState={ tasktitle:"",
 date:"",
