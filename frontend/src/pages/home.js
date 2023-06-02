@@ -4,7 +4,6 @@ import {toast} from "react-toastify";
 import AddTaskIcon from '@mui/icons-material/AddTask';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
-import{Modal} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import "./home.css";
 
@@ -15,8 +14,6 @@ notes:"",}
 
 const Home = () => {
     const [data,setData] =useState([]);
-    const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
     const[state,setState]=useState({initialState});
     const {tasktitle,date,time,notes}=state;
     
@@ -93,41 +90,6 @@ const Home = () => {
                             </div>
                             <p className="mb-1">{item.notes}</p>
                         </a>
-                    </div>
-
-                    <div>
-                        <Modal show={show} onHide={handleClose} style={{ marginTop: "80px", borderRadius: "3px", marginLeft: "500px", width: "600px", height: "600px", background: "MediumSeaGreen", borderStyle: "solid", border: "black" }}>
-                            <Modal.Header closeButton>
-                                <Modal.Title>Your Task</Modal.Title>
-                            </Modal.Header>
-
-                            <Modal.Body>
-                                <div className="d-flex flex-column">
-                                    <div className="d-flex flex-row">
-                                        <label style={{ width: "75px" }}>TaskTitle:</label>
-                                        <input type='text' autoComplete="off" defaultValue={tasktitle} placeholder='Type the task title here' name='tasktitle' style={{ marginLeft: "10px" }} />
-                                    </div>
-                                    <div className="d-flex flex-row">
-                                        <label style={{ width: "75px" }}>Date:</label>
-                                        <input type="date" name='date' value={date || ""} style={{ marginLeft: "10px" }} />
-                                    </div>
-                                    <div className="d-flex flex-row">
-                                        <label style={{ width: "75px" }}>Time:</label>
-                                        <input type='time' name='time' value={time || ""} style={{ marginLeft: "10px" }} />
-                                    </div>
-                                    <div className="d-flex flex-row">
-                                        <label style={{ width: "75px", height: "100px" }}>Notes:</label>
-                                        <input type='text' name='notes' value={notes || ""} onChange={handleInputChange} style={{ marginLeft: "10px" }} />
-                                    </div>
-                                </div>
-                            </Modal.Body>
-
-                            <Modal.Footer>
-                                <button type="button" className="btn btn-primary" onClick={() => { handleSubmit(item.id); handleClose() }}>Update</button>
-
-                                <button type="button" className="btn btn-secondary" onClick={handleClose} data-dismiss="modal">Close</button>
-                            </Modal.Footer>
-                        </Modal>
                     </div>
                 </>)
             )}
