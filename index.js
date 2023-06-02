@@ -1,7 +1,7 @@
-const express = require("express");//nodejs framework
+const express = require("express");
 const app =express();
 const mysql=require("mysql2");
-const cors = require("cors");//cross origin 
+const cors = require("cors");
 
 const db=mysql.createPool({
     host:"localhost",
